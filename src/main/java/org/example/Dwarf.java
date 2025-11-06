@@ -1,7 +1,8 @@
 package org.example;
 
-public class Magus extends Character{
-    public Magus(String name, int maxHp, Weapon weapon) {
+public class Dwarf extends Character {
+
+    public Dwarf(String name, int maxHp, Weapon weapon) {
         super(name, maxHp, weapon);
     }
 
