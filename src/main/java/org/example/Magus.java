@@ -1,12 +1,25 @@
 package org.example;
 
-public class Magus extends Character{
-    public Magus(String name, int maxHp, Weapon weapon) {
-        super(name, maxHp, weapon);
+public class Magus extends Character implements Healer{
+    private static final int    BASE_HP     = Utils.hpFor(Utils.Level.HIGH);
+    private static final Weapon BASE_WEAPON = new Weapon("Staff", Utils.powerFor(Utils.Level.LOW));
+
+    public Magus(String name) {
+        super(name, BASE_HP, BASE_WEAPON);
     }
 
     @Override
     public String getTypeName() {
-        return "";
+        return "Magus";
+    }
+
+    @Override
+    public String getTypeDescription() {
+        return "Peut soigner ses alliés";
+    }
+
+    @Override
+    public int heal(Character ally) {
+        return 0;
     }
 }

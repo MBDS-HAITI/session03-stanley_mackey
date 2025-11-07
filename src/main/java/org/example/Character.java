@@ -1,6 +1,6 @@
 package org.example;
 
-public abstract class Character {
+public abstract class Character implements Attacker {
     // name of Character, Can't modify after
     private final String name;
 
@@ -49,7 +49,9 @@ public abstract class Character {
     }
 
     // alive if hp > 0. Dead characters cannot act or be healed. Can't override
-    public final boolean isAlive() { return hp > 0; }
+    public final boolean isAlive() {
+        return hp > 0;
+    }
 
     // Core combat mechanics (common, safe, spec-compliant)
     public final int receiveDamage(int amount) {
@@ -72,6 +74,7 @@ public abstract class Character {
         return hp - before;
     }
 
+    @Override
     public int attack(Character target) {
         if (target == null) return 0;
         int power = Math.max(0, weapon.getPower()); // Weapon API kept minimal
@@ -80,6 +83,8 @@ public abstract class Character {
     }
 
     public abstract String getTypeName();
+
+    public abstract String getTypeDescription();
 //    public abstract void action(GameContext ctx);
 
 }

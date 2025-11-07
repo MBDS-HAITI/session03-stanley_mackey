@@ -1,12 +1,20 @@
 package org.example;
 
 public class Colossus extends Character{
-    public Colossus(String name, int maxHp, Weapon weapon) {
-        super(name, maxHp, weapon);
+    private static final int    BASE_HP     = Utils.hpFor(Utils.Level.VERY_HIGH);
+    private static final Weapon BASE_WEAPON = new Weapon("Sword", Utils.powerFor(Utils.Level.MEDIUM));
+
+    public Colossus(String name) {
+        super(name, BASE_HP, BASE_WEAPON);
     }
 
     @Override
     public String getTypeName() {
-        return "";
+        return "Colossus";
+    }
+
+    @Override
+    public String getTypeDescription() {
+        return "Très résistant";
     }
 }
