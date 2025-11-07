@@ -18,4 +18,9 @@ public class Warrior extends Character{
     public String getTypeDescription() {
         return "Attaquant équilibré";
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

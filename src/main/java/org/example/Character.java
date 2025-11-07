@@ -82,6 +82,11 @@ public abstract class Character implements Attacker {
         return target.receiveDamage(power);
     }
 
+    @Override
+    public String toString() {
+        return "Character {Type = " + getTypeName() + ", name='" + name +", maxHp=" + maxHp + ", hp=" + hp +", weapon=" + weapon + "}";
+    }
+
     public abstract String getTypeName();
 
     public abstract String getTypeDescription();
