@@ -22,4 +22,9 @@ public class Magus extends Character implements Healer{
     public int heal(Character ally) {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

@@ -17,4 +17,8 @@ public class Colossus extends Character{
     public String getTypeDescription() {
         return "Très résistant";
     }
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
