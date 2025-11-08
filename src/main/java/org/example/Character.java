@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.Utils.ActionType;
+
 public abstract class Character implements Attacker {
     // name of Character, Can't modify after
     private final String name;
@@ -90,6 +92,7 @@ public abstract class Character implements Attacker {
     public abstract String getTypeName();
 
     public abstract String getTypeDescription();
-//    public abstract void action(GameContext ctx);
+
+//    public abstract void action();
 
 }
