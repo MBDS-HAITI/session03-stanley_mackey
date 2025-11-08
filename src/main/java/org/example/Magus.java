@@ -18,9 +18,14 @@ public class Magus extends Character implements Healer{
         return "Peut soigner ses alliés";
     }
 
+
+
     @Override
     public int heal(Character ally) {
-        return 0;
+        // Can not heal if ally dead or hp =maxHp
+        if (ally == null) return -1;
+        if (ally.getHp() <= 0 || ally.getHp() == ally.getMaxHp()) return -1;
+        return ally.receiveHeal(BASE_WEAPON.getPower());
     }
 
     @Override

@@ -9,6 +9,11 @@ public final class Utils {
         VERY_HIGH   
     }
 
+    public enum ActionType {
+        ATTACK,
+        HEALER
+    }
+
     // Weapon Power
     public static final int POWER_LOW       = 30; 
     public static final int POWER_MEDIUM    = 40; 
