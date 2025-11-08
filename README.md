@@ -1,70 +1,23 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/FA26F0-w)
-# 🕹️ Titre du projet : Battle Arena (prototype console)
+# Battlefied Arena
 
-## 🎯 Objectif du jeu
+## Nota Bene
 
-Deux joueurs s’affrontent avec leurs équipes respectives de trois personnages chacun.
-Chaque personnage a un type, un nom unique, des points de vie (HP) et une arme.
-Le but est de tuer tous les personnages de l’équipe adverse.
+As , we had to write the comments in english , we just did everything in english. As suggested , 
+this is note a final version , so some methods that have been implemented in the classes have not been used (for now ...)
 
-## ⚙ Structure du jeu
+## Classes
 
-### Étape 1 : Création des équipes
+For the requirements of the projects we use the classes  
+    1. Attacker  
+    2. Healer
+    3. Attacker -> Character  
+    4. Character -> Colossus  
+    5. Character -> Magus  
+    6. Character -> Dwarf  
+    
 
-Chaque joueur crée 3 personnages :
+For the pograms logic we use the classes
+    1. Main  
+    2. Game
 
-- Le joueur choisit le type et le nom de chaque personnage.
-- Le nom doit être unique dans toute la partie.
-- Le type doit être unique dans chaque équipe et détermine les points de vie de départ et l’arme du personnage.
-
-Les types disponibles sont :
-| Type | Description | Points de vie | Puissance de l’arme |
-| ------------ | ----------------------- | ------------- | ------------------- |
-| **Warrior**  | Attaquant équilibré | Moyens | Moyenne |
-| **Magus**    | Peut soigner ses alliés | Élevés | Faibles |
-| **Colossus** | Très résistant | Très élevés | Moyens |
-| **Dwarf**    | Très fort mais fragile | Faibles | Très élevés |
-
-Vous êtes libres de déterminer les valeurs exactes des points de vie et de la puissance des armes.
-
-### Étape 2 : Le combat
-
-Le jeu se déroule en tours successifs :
-
-- Le joueur actif choisit un personnage de son équipe.
-
-- Il choisit une action :
-    - Attaquer un personnage de l’équipe adverse
-    - Soigner un allié (si le type de personnage le permet, ex. Magus)
-
-- Il choisit la cible (ennemi à attaquer ou allié à soigner).
-    - Le programme exécute l’action : mise à jour des points de vie, affichage du résultat.
-    - Les attaques et soins sont effectués via les armes ou les capacités spéciales des personnages.
-
-### Étape 3 : Fin de partie
-
-- Quand un personnage atteint 0 HP, il meurt définitivement.
-- Si tous les personnages d’un joueur sont morts, l’autre joueur gagne.
-- À la fin, le programme affiche :
-    - Le gagnant
-    - Le nombre de tours joués
-    - Le statut de chaque personnage (nom, type, HP, etc.)
-
-## 💡 Contraintes techniques
-
-- Pas d’interface graphique. Le jeu doit se jouer dans le terminal (console).
-- L’application doit être documentée en anglais (commentaires clairs).
-- Le code doit être structuré pour être facilement compréhensible (idéal pour un stagiaire).
-- Le but est un prototype fonctionnel, pas une version finale.
-
-## Concepts clés à utiliser :
-
-| Concept              | Exemple dans le jeu                                                  |
-|----------------------|----------------------------------------------------------------------|
-| **Classe**           | `Character`, `Weapon`, `Player`                                      |
-| **Héritage**         | `Warrior`, `Magus`, `Colossus` héritent de `Character`               |
-| **Interface**        | `Healer`, `Attacker` définissant des capacités spécifiques           |
-| **Classe abstraite** | `Character` (force les sous-classes à implémenter `action()`)        |
-| **Polymorphisme**    | Liste de `Character` contenant différents types (appel à `action()`) |
-| **Encapsulation**    | Gestion interne de la santé et des dégâts                            |
-| **Composition**      | Un `Character` possède une `Weapon`                                  |
+## The Parameters

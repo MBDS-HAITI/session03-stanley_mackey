@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -27,8 +28,7 @@ public class Player {
 
     // Player's State
     public boolean isDefeated() {
-        boolean b = team.stream().noneMatch(Character::isAlive);
-        return b;
+        return team.stream().noneMatch(Character::isAlive);
     }
 
     public int aliveCount() {
@@ -73,6 +73,20 @@ public class Player {
                 throw new IllegalArgumentException("duplicate character type in team: " + type);
             }
         }
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.name;
+    }
+
+    public List<String> teamStat()
+    {
+        List<String> stats = new ArrayList<>();
+        for (Character character : this.team)
+            stats.add(character.toString());
+        return  stats;
     }
 
 

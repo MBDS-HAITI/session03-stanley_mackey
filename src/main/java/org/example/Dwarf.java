@@ -18,6 +18,13 @@ public class Dwarf extends Character {
     public String getTypeDescription() {
         return "Très fort mais fragile";
     }
+
+    @Override
+    public void action(Character character) {
+        attack(character);
+        return;
+    }
+
     @Override
     public String toString() {
         return super.toString();

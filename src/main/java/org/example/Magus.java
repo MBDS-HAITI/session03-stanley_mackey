@@ -10,7 +10,7 @@ public class Magus extends Character implements Healer{
 
     @Override
     public String getTypeName() {
-        return "Magus";
+        return "MAGUS";
     }
 
     @Override
@@ -18,14 +18,20 @@ public class Magus extends Character implements Healer{
         return "Peut soigner ses alliés";
     }
 
+    @Override
+    public void action(Character character) {
+        heal(character);
+    return;
+    }
 
 
     @Override
-    public int heal(Character ally) {
+    public void heal(Character ally) {
         // Can not heal if ally dead or hp =maxHp
-        if (ally == null) return -1;
-        if (ally.getHp() <= 0 || ally.getHp() == ally.getMaxHp()) return -1;
-        return ally.receiveHeal(BASE_WEAPON.getPower());
+        System.out.println("%s is healing %s".formatted(this,ally));
+        if (ally == null) return ;
+        if (ally.getHp() <= 0 || ally.getHp() == ally.getMaxHp()) return ;
+        ally.receiveHeal(BASE_WEAPON.getPower());
     }
 
     @Override
