@@ -56,43 +56,50 @@ public abstract class Character implements Attacker {
     }
 
     // Core combat mechanics (common, safe, spec-compliant)
-    public final int receiveDamage(int amount) {
+    public final void receiveDamage(int amount) {
         // Cannot take damage if dead; amount must be > 0
-        if (!isAlive() || amount <= 0) return 0;
+        if (!isAlive() || amount <= 0) return ;
         int before = hp;
         // hp >=0
         hp = Math.max(0, hp - amount);
-        // Apply damage
-        return before - hp;
     }
 
-    protected final int receiveHeal(int amount) {
+    protected final void receiveHeal(int amount) {
         // Cannot receive healing if dead; amount must be > 0
-        if (!isAlive() || amount <= 0) return 0;
+        if (!isAlive() || amount <= 0) return ;
         int before = hp;
         // hp <= maxHp
         hp = Math.min(maxHp, hp + amount);
-        // Apply healing
-        return hp - before;
+
     }
 
     @Override
-    public int attack(Character target) {
-        if (target == null) return 0;
+    public void attack(Character target) {
+        System.out.println("%s is attaking %s".formatted(this,target));
+        if (target == null) return ;
         int power = Math.max(0, weapon.getPower()); // Weapon API kept minimal
-        if (power == 0) return 0;
-        return target.receiveDamage(power);
+        if (power == 0) return ;
+        target.receiveDamage(power);
     }
 
     @Override
     public String toString() {
-        return "Character {Type = " + getTypeName() + ", name='" + name +", maxHp=" + maxHp + ", hp=" + hp +", weapon=" + weapon + "}";
+        if (hp>0)
+            return  name+ "  ["+ getTypeName() +"] "+ hp +"/" + maxHp  + " ("+weapon + ")";
+        else
+            return   name+ "  ["+ getTypeName() +"] Dead  ("+weapon + ")";
     }
+
+    /*@Override
+    public Boolean equals(Character compare){
+        return compare.name==this.name;
+    }*/
 
     public abstract String getTypeName();
 
     public abstract String getTypeDescription();
 
-//    public abstract void action();
+
+    public abstract void action(Character character);
 
 }

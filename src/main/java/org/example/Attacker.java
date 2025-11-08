@@ -2,5 +2,5 @@ package org.example;
 
 public interface Attacker {
     // Attacks a target and returns the effective damage applied.
-    int attack(Character target);
+    void attack(Character target);
 }
