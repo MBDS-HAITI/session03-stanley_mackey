@@ -86,8 +86,13 @@ public abstract class Character implements Attacker {
 
     @Override
     public String toString() {
-        return "Character {Type = " + getTypeName() + ", name='" + name +", maxHp=" + maxHp + ", hp=" + hp +", weapon=" + weapon + "}";
+        return  name+ "  ["+ getTypeName() +"] "+ hp +"/" + maxHp  + " ("+weapon + ")";
     }
+
+    /*@Override
+    public Boolean equals(Character compare){
+        return compare.name==this.name;
+    }*/
 
     public abstract String getTypeName();
 
