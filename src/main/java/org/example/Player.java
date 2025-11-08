@@ -28,8 +28,7 @@ public class Player {
 
     // Player's State
     public boolean isDefeated() {
-        boolean b = team.stream().noneMatch(Character::isAlive);
-        return b;
+        return team.stream().noneMatch(Character::isAlive);
     }
 
     public int aliveCount() {

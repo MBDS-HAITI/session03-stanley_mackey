@@ -1,4 +1,6 @@
 package org.example;
+import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 import java.util.Objects;
@@ -19,8 +21,70 @@ public class Game {
     }
 
     private void play() {
-        while ()
+
+        String action ="attack";
+        List<Character> membersToBeChosen ;
+        Character actorCharacter = null;
+        Character suffererCharacter = null;
+        Player actor=null;
+        Player sufferer =null;
+        int round = 0;
+
+        while (!player1.isDefeated() && !player2.isDefeated()) {
+
+            System.out.println(stat());
+
+            if ((round% 2)==0)
+            {
+                actor = player1;
+                sufferer = player2;
+            }
+            else
+            {
+                actor = player2;
+                sufferer = player1;
+            }
+                actorCharacter=choosingACharacter(actor);
+                if (actorCharacter.getTypeName().equals("MAGUS"))
+                {
+                    action=" heal";
+                    sufferer = actor;
+                }
+                System.out.println("Select whom %s should %s ".formatted(actorCharacter,action));
+                suffererCharacter=choosingACharacter(sufferer);
+                actorCharacter.action(suffererCharacter);
+
+                round++;
+        }
+
+        if (player1.isDefeated())
+            System.out.println("%s won in %d rounds".formatted(player2,round/2));
+        else
+            System.out.println("%s won in %d rounds".formatted(player1,round/2));
+
         System.out.println(stat());
+
+
+    }
+
+    private Character choosingACharacter(Player player)
+    {
+        String chosenMember="";
+        Character playingCharacter = null;
+
+        do {
+            System.out.println("select a member of %s : ".formatted(player));
+            System.out.println(player.aliveMembers());
+            chosenMember=input.next().toUpperCase().strip();
+        }while(player.findByName(chosenMember)==null);
+        for (Character character : player.aliveMembers())
+            if (character.getName().equals(chosenMember))
+            {
+                playingCharacter = character;
+                break;
+            }
+
+        return playingCharacter;
     }
 
     private String stat()

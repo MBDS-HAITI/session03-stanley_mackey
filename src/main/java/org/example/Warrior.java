@@ -11,7 +11,7 @@ public class Warrior extends Character{
 
     @Override
     public String getTypeName() {
-        return "Warrior";
+        return "WARRIOR";
     }
 
     @Override
@@ -20,7 +20,14 @@ public class Warrior extends Character{
     }
 
     @Override
+    public void action(Character character) {
+        attack(character);
+    return ;
+    }
+
+    @Override
     public String toString() {
         return super.toString();
     }
+
 }

@@ -10,13 +10,20 @@ public class Colossus extends Character{
 
     @Override
     public String getTypeName() {
-        return "Colossus";
+        return "COLOSSUS";
     }
 
     @Override
     public String getTypeDescription() {
         return "Très résistant";
     }
+
+    @Override
+    public void action(Character character) {
+        attack(character);
+        return;
+    }
+
     @Override
     public String toString() {
         return super.toString();

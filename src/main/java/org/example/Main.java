@@ -44,7 +44,6 @@ public class Main {
                 i-=1;
                 continue;
             }
-
             System.out.println("Choosing character for %s".formatted(player_names[i]));
             choosingCharacter(characters,i);
             players[i]=new Player(player_names[i],List.of(characters[i*3],characters[i*3+1],characters[i*3+2]));
