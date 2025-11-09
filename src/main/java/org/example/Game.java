@@ -29,6 +29,7 @@ public class Game {
         Player actor=null;
         Player sufferer =null;
         int round = 0;
+        int actionMagus=0;
 
         while (!player1.isDefeated() && !player2.isDefeated()) {
 
@@ -47,12 +48,25 @@ public class Game {
                 actorCharacter=choosingACharacter(actor);
                 if (actorCharacter.getTypeName().equals("MAGUS"))
                 {
-                    action=" heal";
-                    sufferer = actor;
+
+                    do{
+                        System.out.println("Select What to do (1.Attack / 2.Heal)");
+                        actionMagus=input.nextInt();
+                    }while(actionMagus !=1 && actionMagus!=2 );
+                    if(actionMagus==2)
+                    {
+                        action=" heal";
+                        sufferer = actor;
+                    }
+
                 }
                 System.out.println("Select whom %s should %s ".formatted(actorCharacter,action));
                 suffererCharacter=choosingACharacter(sufferer);
-                actorCharacter.action(suffererCharacter);
+                if (actorCharacter.getTypeName().equals("MAGUS")&& actionMagus==2)
+                    actorCharacter.action(suffererCharacter,actionMagus);
+                else{
+                actorCharacter.action(suffererCharacter, 1);
+            }
 
                 round++;
         }

@@ -75,7 +75,6 @@ public abstract class Character implements Attacker {
 
     @Override
     public void attack(Character target) {
-        System.out.println("%s is attaking %s".formatted(this,target));
         if (target == null) return ;
         int power = Math.max(0, weapon.getPower()); // Weapon API kept minimal
         if (power == 0) return ;
@@ -100,6 +99,6 @@ public abstract class Character implements Attacker {
     public abstract String getTypeDescription();
 
 
-    public abstract void action(Character character);
+    public abstract void action(Character character, int actionType);
 
 }

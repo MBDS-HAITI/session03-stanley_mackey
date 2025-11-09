@@ -20,9 +20,9 @@ public class Warrior extends Character{
     }
 
     @Override
-    public void action(Character character) {
+    public void action(Character character,int actonType) {
+        if(actonType==2)return;
         attack(character);
-    return ;
     }
 
     @Override

@@ -18,11 +18,16 @@ public class Magus extends Character implements Healer{
         return "Peut soigner ses alliés";
     }
 
+
     @Override
-    public void action(Character character) {
-        heal(character);
-    return;
+    public void action(Character character,int actionType)  {
+        if (actionType==1){
+            attack(character);
+        } else if (actionType==2) {
+            heal(character);
+        }
     }
+
 
 
     @Override
